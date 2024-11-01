@@ -1,0 +1,258 @@
+
+                                                                              
+%       ,---,.                                                  ___               
+%     ,'  .' |                                                ,--.'|_             
+%   ,---.'   |                 ,---,      ,---,               |  | :,'            
+%   |   |   .'             ,-+-. /  | ,-+-. /  |    .--.--.   :  : ' :            
+%   :   :  :        .--,  ,--.'|'   |,--.'|'   |   /  /    '.;__,'  /       .--,  
+%   :   |  |-,    /_ ./| |   |  ,"' |   |  ,"' |  |  :  /`./|  |   |      /_ ./|  
+%   |   :  ;/| , ' , ' : |   | /  | |   | /  | |  |  :  ;_  :__,'| :   , ' , ' :  
+%   |   |   .'/___/ \: | |   | |  | |   | |  | |   \  \    `. '  : |__/___/ \: |  
+%   '   :  '   .  \  ' | |   | |  |/|   | |  |/     `----.   \|  | '.'|.  \  ' |  
+%   |   |  |    \  ;   : |   | |--' |   | |--'___  /  /`--'  /;  :    ; \  ;   :  
+%   |   :  \     \  \  ; |   |/     |   |/   /  .\'--'.     / |  ,   /   \  \  ;  
+%   |   | ,'      :  \  \'---'      '---'    \  ; | `--'---'   ---`-'     :  \  \ 
+%   `----'         \  ' ;                     `--"                         \  ' ; 
+%                   `--`                                                    `--`
+
+
+% Personal LaTeX Notes Template
+
+
+% For fancy text: https://edukits.co/text-art/ => USE ROMAN
+
+
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage[dvipsnames]{xcolor}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{multicol}
+
+\usepackage{xparse,xstring}
+
+\usepackage{tikz}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Text Styling           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\vocab}[1]{\textbf{\color{blue}\sffamily #1}}
+\newcommand{\catname}{\mathsf}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header of File         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mailto}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand{\plusemail}[1]{\textendash\normalfont \texttt{\mailto{#1}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                             %%
+%%  ooo        ooooo               .   oooo                    %%
+%%  `88.       .888'             .o8   `888                    %%
+%%   888b     d'888   .oooo.   .o888oo  888 .oo.    .oooo.o    %%
+%%   8 Y88. .P  888  `P  )88b    888    888P"Y88b  d88(  "8    %%
+%%   8  `888'   888   .oP"888    888    888   888  `"Y88b.     %%
+%%   8    Y     888  d8(  888    888 .  888   888  o.  )88b    %%
+%%  o8o        o888o `Y888""8o   "888" o888o o888o 8""888P'    %%
+%%                                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{etoolbox} % remove extra spacing around colons, for functions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math Shortcuts          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d} #1}}
+
+\newcommand{\del}{\partial}
+\newcommand{\parderiv}[1]{\frac{\del}{\del #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math Operators         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator*{\lcm}{lcm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Probability            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\std}{std}
+
+\DeclareMathOperator{\Pois}{Pois}
+\DeclareMathOperator{\betad}{beta}
+\DeclareMathOperator{\gammad}{gamma}
+\DeclareMathOperator{\erf}{erf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set Theory             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\union}{\cup}
+\newcommand{\intersect}{\cap}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Linear Algebra         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vector Calculus        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\grad}{\nabla}
+\newcommand{\division}{\div}      % save old division command
+\let\div\relax                    % divergence, not division
+\newcommand{\div}{\nabla \cdot}
+\newcommand{\curl}{\nabla \times}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                            %%
+%%  ooooooooo.   oooo                              o8o                        %%
+%%  `888   `Y88. `888                              `"'                        %%
+%%   888   .d88'  888 .oo.   oooo    ooo  .oooo.o oooo   .ooooo.   .oooo.o    %%
+%%   888ooo88P'   888P"Y88b   `88.  .8'  d88(  "8 `888  d88' `"Y8 d88(  "8    %%
+%%   888          888   888    `88..8'   `"Y88b.   888  888       `"Y88b.     %%
+%%   888          888   888     `888'    o.  )88b  888  888   .o8 o.  )88b    %%
+%%  o888o        o888o o888o     .8'     8""888P' o888o `Y8bod8P' 8""888P'    %%
+%%                           .o..P'                                           %%
+%%                           `Y8P'                                            %%
+%%                                                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General Stuff          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{siunitx}
+    \sisetup{per-mode=fraction}
+    \sisetup{per-mode=symbol}
+    \DeclareSIUnit[number-unit-product = {}] \fr{\,Fr.}
+    \newcommand{\FR}[1]{\SI{#1}{\fr}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quantum Mechanics      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclarePairedDelimiter\ket{|}{\rangle} % use \ket* for large arguments
+\DeclarePairedDelimiter\bra{\langle}{|}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\bigbraket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Circuits               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{circuitikz}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                                                %%
+%%  ooooooooooooo oooo                                                                            %%
+%%  8'   888   `8 `888                                                                            %%
+%%       888       888 .oo.    .ooooo.   .ooooo.  oooo d8b  .ooooo.  ooo. .oo.  .oo.    .oooo.o   %%
+%%       888       888P"Y88b  d88' `88b d88' `88b `888""8P d88' `88b `888P"Y88bP"Y88b  d88(  "8   %%
+%%       888       888   888  888ooo888 888   888  888     888ooo888  888   888   888  `"Y88b.    %%
+%%       888       888   888  888    .o 888   888  888     888    .o  888   888   888  o.  )88b   %%
+%%      o888o     o888o o888o `Y8bod8P' `Y8bod8P' d888b    `Y8bod8P' o888o o888o o888o 8""888P'   %%
+%%                                                                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\usepackage{amsthm}
+\usepackage{thmtools}
+\mdfdefinestyle{mdbluebox}{%
+  roundcorner=6pt,
+  linewidth=1pt,
+  skipabove=12pt,
+  innerbottommargin=9pt,
+  skipbelow=2pt,
+  linecolor=MidnightBlue ,
+  nobreak=true,
+  backgroundcolor=TealBlue!5,
+}
+    \declaretheoremstyle[
+      headfont=\sffamily\bfseries\color{BlueViolet},
+      mdframed={style=mdbluebox},
+      headpunct={\\[3pt]},
+      postheadspace={0pt}
+    ]{blue}
+
+\mdfdefinestyle{exe}{%
+  topline=false,
+  rightline=false,
+  bottomline=false,
+  leftline=true,
+  linewidth=1pt,
+  skipabove=12pt,
+  innerbottommargin=9pt,
+  skipbelow=2pt,
+  linecolor=Gray!50!Black!90 ,
+  nobreak=true,
+  backgroundcolor=Gray!5,
+}
+    \declaretheoremstyle[
+      headfont=\sffamily\bfseries\color{Gray!30!Black!90},
+      mdframed={style=exe},
+      headpunct={\\[3pt]},
+      postheadspace={0pt}
+    ]{grayBox}
+
+
+\declaretheorem[style=blue,name=Satz,numberwithin=section]{thm}
+\declaretheorem[style=blue,name=Lemma,sibling=thm]{lemma}
+\declaretheorem[style=blue,name=Korollar,sibling=thm]{cor}
+\declaretheorem[style=blue,name=Definition,sibling=thm]{defn}
+\declaretheorem[style=blue,name=Beispiel,sibling=thm]{ex}
+\declaretheorem[style=blue,name=Bemerkung,sibling=thm]{rem}
+\declaretheorem[style=blue,name=Frage,sibling=thm]{qs}
+\declaretheorem[style=grayBox,name=Aufgabenblock,sibling=thm]{prob}
+
+\declaretheorem[style=blue,name=Satz,numbered=no]{thm*}
+\declaretheorem[style=blue,name=Lemma,numbered=no]{lemma*}
+\declaretheorem[style=blue,name=Korollar,numbered=no]{cor*}
+\declaretheorem[style=blue,name=Definition,numbered=no]{defn*}
+\declaretheorem[style=blue,name=Beispiel,numbered=no]{ex*}
+\declaretheorem[style=blue,name=Bemerkung,numbered=no]{rem*}
+\declaretheorem[style=blue,name=Frage,numbered=no]{qs*}
+\declaretheorem[style=grayBox,name=Aufgabenblock,numbered=no]{prob*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Marking Scheme         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\worth}[1]{\def\hfill{\hskip 20pt plus 1fill}\dotfill%
+      \IfEq{#1}{0}{\textbf{0~points}}%
+      {\textbf{\color{blue}#1~point\IfEndWith{#1}{1}{}{s}}}%
+      \par}
+
+
+
