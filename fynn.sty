@@ -51,7 +51,6 @@
 \newcommand{\vocab}[1]{\textbf{\color{blue}\sffamily #1}}
 \newcommand{\catname}{\mathsf}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Header of File         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -170,7 +169,19 @@
 
 \usepackage{circuitikz}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                                                      %%
+%%  ooooo              .o88o.                                                    .    o8o  oooo         %%
+%%  `888'              888 `"                                                  .o8    `"'  `888         %%
+%%   888  ooo. .oo.   o888oo   .ooooo.  oooo d8b ooo. .oo.  .oo.    .oooo.   .o888oo oooo   888  oooo   %%
+%%   888  `888P"Y88b   888    d88' `88b `888""8P `888P"Y88bP"Y88b  `P  )88b    888   `888   888 .8P'    %%
+%%   888   888   888   888    888   888  888      888   888   888   .oP"888    888    888   888888.     %%
+%%   888   888   888   888    888   888  888      888   888   888  d8(  888    888 .  888   888 `88b.   %%
+%%  o888o o888o o888o o888o   `Y8bod8P' d888b    o888o o888o o888o `Y888""8o   "888" o888o o888o o888o  %%
+%%                                                                                                      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{minted}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                                                %%
@@ -184,6 +195,7 @@
 %%                                                                                                %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage[minted,most]{tcolorbox}
 
 \usepackage[framemethod=TikZ]{mdframed}
 
@@ -200,7 +212,10 @@
   backgroundcolor=TealBlue!5,
 }
     \declaretheoremstyle[
-      headfont=\sffamily\bfseries\color{BlueViolet},
+      headfont=\sffamily\color{BlueViolet},
+      notebraces={}{},
+      headformat=\NAME\ \NUMBER:\NOTE,
+      notefont=\bfseries,
       mdframed={style=mdbluebox},
       headpunct={\\[3pt]},
       postheadspace={0pt}
@@ -234,7 +249,9 @@
 \declaretheorem[style=blue,name=Beispiel,sibling=thm]{ex}
 \declaretheorem[style=blue,name=Bemerkung,sibling=thm]{rem}
 \declaretheorem[style=blue,name=Frage,sibling=thm]{qs}
+\declaretheorem[style=blue,name=Algorithmus,sibling=thm]{algor}
 \declaretheorem[style=grayBox,name=Aufgabenblock,sibling=thm]{prob}
+
 
 \declaretheorem[style=blue,name=Satz,numbered=no]{thm*}
 \declaretheorem[style=blue,name=Lemma,numbered=no]{lemma*}
@@ -243,6 +260,7 @@
 \declaretheorem[style=blue,name=Beispiel,numbered=no]{ex*}
 \declaretheorem[style=blue,name=Bemerkung,numbered=no]{rem*}
 \declaretheorem[style=blue,name=Frage,numbered=no]{qs*}
+\declaretheorem[style=blue,name=Algorithmus,numbered=no]{algor*}
 \declaretheorem[style=grayBox,name=Aufgabenblock,numbered=no]{prob*}
 
 
